@@ -1,0 +1,19 @@
+{
+  "name": "fullstack-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js"
+  },
+  "author": "leon matias",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7",
+    "body-parser": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
