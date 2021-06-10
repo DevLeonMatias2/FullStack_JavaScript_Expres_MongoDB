@@ -2,11 +2,27 @@ const express = require('express');
 const mongoose =  require('mongoose');
 const routes = require('./routes');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 
 
 //crear el servidor
 const app = express();
+
+//Hablitar cors
+const whitelist = ['http://localhost:3200'];
+const corsOptions = {
+    origin: (origin, callback) => {
+        const existe = whitelist.some( dominio => dominio === origin);
+        if( existe ) {
+            callback(null,true)
+        }else{
+            callback(new Error('No permitido por CORS'))
+        }
+    }
+};
+
+app.use(cors(corsOptions));
 
 //Conectar a mongodb
 mongoose.Promise = global.Promise;
